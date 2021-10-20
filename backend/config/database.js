@@ -5,7 +5,7 @@ const dotenv= require('dotenv')
 dotenv.config({path:'backend/config/config.env'})
 
 
-
+//connect database
 const connectDb = () =>{
     mongoose.connect(process.env.DB_LOCAL_URI,{
         useNewUrlParser:true,
