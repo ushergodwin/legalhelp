@@ -4,6 +4,16 @@ const connectDb= require('./config/database')
 
 const dotenv = require('dotenv')
 
+//Handling Uncaught Exception errors
+
+process.on('uncaughtException', err=>{
+    console.log(`ERROR: ${err.stack}`)
+    console.log('Server shutting down due to Uncaught Exception')
+    process.exit(1)
+})
+
+
+
 //connecting to the database
 connectDb() 
 
