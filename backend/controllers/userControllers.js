@@ -1,28 +1,59 @@
 const ErrorHandler = require('../utils/errorHandler')
 const CatchAsyncError = require('../middlewares/catchAsyncError')
-// const User = require('../models/user')
+const User = require('../models/user')
 
-//testing controllers
+//register user => api/v1/register
+exports.registerUser = CatchAsyncError( async(req,res,next)=>{
 
-exports.createUser= CatchAsyncError( async(req,res,next)=>{
-    res.status(200).json({
+    const {name, email, password} = req.body
+
+    const user = await User.create({
+        name,
+        email,
+        password,
+        avatar:{
+            public_id:'avatars/l3bcquiktvwgxzr8n51v',
+            url:'https://res.cloudinary.com/emmatechs/image/upload/v1631800644/avatars/l3bcquiktvwgxzr8n51v.jpg'
+        }
+    })
+
+    const token = user.getJwtToken(user)
+
+    res.status(201).json({
         success:true,
-        message:"this route is for creating users"
+        token
     })
 })
 
-exports.getUser= CatchAsyncError( async(req,res,next)=>{
+//Login user => api/v1/login
+exports.loginUser= CatchAsyncError( async(req,res,next)=>{
 
-    // const user = await User.findById(req.user.id)
+    const {email, password} = req.body
+    
+    //checks if user inputs email and password 
+    if(!email || !password){
+        return next(new ErrorHandler('Please enter email and password', 400))
+    }
 
-    // if(!user){
+    //find user in the database
+    const user = await User.findOne({email}).select('+password')
 
-    //     return (new ErrorHandler('Creating the user', 404))
-    // }
+    if(!user){
+        return (new ErrorHandler('Invalid email or password', 401))
+    }
 
-    res.status(200).json({
-        sucess:true,
-        // user
-        message:'User found succesfully'
+    //checks if password is correct or Not
+    const isPasswordMatched= await user.comparePassword(password)
+
+    if(!isPasswordMatched){
+        return (new ErrorHandler('Invalid email or password', 401))
+    }
+
+    const token = user.getJwtToken()
+
+    res.status(201).json({
+        success:true,
+        token
     })
+
 })

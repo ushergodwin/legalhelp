@@ -2,9 +2,10 @@
  const router = express.Router()
 
  //import the controller function right here
-const {createUser} = require('../controllers/userControllers')
+const {registerUser, loginUser} = require('../controllers/userControllers')
 
 //specify route and method
-router.route('/user/new').post(createUser)
+router.route('/register').post(registerUser)
+router.route('/login').post(loginUser) 
 
 module.exports = router

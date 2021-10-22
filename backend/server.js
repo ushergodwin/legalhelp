@@ -9,7 +9,8 @@ const dotenv = require('dotenv')
 process.on('uncaughtException', err=>{
     console.log(`ERROR: ${err.stack}`)
     console.log('Server shutting down due to Uncaught Exception')
-    process.exit(1)
+    process.exit(1) 
+
 })
 
 
