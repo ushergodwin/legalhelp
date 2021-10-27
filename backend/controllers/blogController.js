@@ -1,11 +1,11 @@
 const ErrorHandler = require('../utils/errorHandler')
-const catchAsyncError = require('../middlewares/catchAsyncError')
+const CatchAsyncError = require('../middlewares/catchAsyncError')
 const Blog = require('../models/blog');
 const { randomUUID } = require('crypto');
 
 class blogController
 {
-    createArticle = catchAsyncError( async (req, res, next) => {
+    createArticle = CatchAsyncError( async (req, res, next) => {
         const article = {
             title: req.body.title,
             img_banner: req.body.img_banner,
@@ -34,7 +34,7 @@ class blogController
     });
 
     //admin publish or un publish an article
-    publishArticle = catchAsyncError( async (req, res, next) => {
+    publishArticle = CatchAsyncError( async (req, res, next) => {
         const status = req.body.status;
         const article = await Blog.findById(req.body.id);
         if(article === null)
@@ -70,7 +70,7 @@ class blogController
     });
 
     //admin delete article
-    deleteArticle = catchAsyncError( async (req, res, next) => {
+    deleteArticle = CatchAsyncError( async (req, res, next) => {
         const deleted = await Blog.deleteOne({_id: req.body.id});
         if(deleted.deletedCount > 0)
         {
@@ -84,7 +84,7 @@ class blogController
 
 
     //get one article
-    getOneArticle = catchAsyncError( async (req, res, next) => {
+    getOneArticle = CatchAsyncError( async (req, res, next) => {
         const slung = req.params.slung;
         const article = await Blog.findOne({slung: slung, article_status: 'published'});
         if(article === null)
@@ -101,7 +101,7 @@ class blogController
     //admin update article
 
 
-    updateArticle = catchAsyncError( async (req, res, next) => {
+    updateArticle = CatchAsyncError( async (req, res, next) => {
         const article = {
             title: req.body.title,
             img_banner: req.body.img_banner,
@@ -121,7 +121,7 @@ class blogController
     });
 
     //save comment for an article
-    comment = catchAsyncError( async (req, res, next) => {
+    comment = CatchAsyncError( async (req, res, next) => {
         const comment = {
             email: req.body.email,
             name: req.body.name,
