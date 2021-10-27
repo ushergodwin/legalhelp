@@ -2,6 +2,7 @@ const ErrorHandler = require('../utils/errorHandler')
 const CatchAsyncError = require('../middlewares/catchAsyncError')
 const Blog = require('../models/blog');
 const { randomUUID } = require('crypto');
+
 class blogController
 {
     createArticle = CatchAsyncError( async (req, res, next) => {
@@ -22,7 +23,7 @@ class blogController
         });dd
     });
 
-    allArticles = CatchAsyncError( async (req, res, next) => {
+    allArticles = catchAsyncError( async (req, res, next) => {
         await Blog.find({article_status: 'published'}).sort('-published_at')
         .exec((err, docs) => {
             res.status(200).json({
