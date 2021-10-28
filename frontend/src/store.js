@@ -2,10 +2,12 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
+import {userReducer} from './reducers/userReducers'
+
 
 //rducers for every resource in the backend will be combined here
 const reducer = combineReducers({
-
+    user:userReducer
 })
 
 //all information we need to be store in the state
