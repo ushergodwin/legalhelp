@@ -44,3 +44,11 @@ nav2{
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
+
+/* Footer */
+footer {
+    margin-top: 8rem;
+    color: grey;
+    bottom: 0;
+    width: 100%;
+  }

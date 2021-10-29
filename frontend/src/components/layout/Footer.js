@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
 const Footer = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <Fragment>
+      <footer className="py-1">
+        <p className="text-center  mt-1">
+         LegalHelp Online 2021-2022, All Rights Reserved
+        </p>
+      </footer>
+    </Fragment>
+  );
+};
 
-export default Footer
+export default Footer;
