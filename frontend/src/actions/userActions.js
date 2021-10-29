@@ -36,3 +36,11 @@ export const login = (email,password)=>async (dispatch) =>{
         })
     }
 }
+
+//clear errors
+
+export const clearErrors = () => async (dispatch) =>{
+    dispatch({
+        type: CLEAR_ERRORS
+    })
+}
