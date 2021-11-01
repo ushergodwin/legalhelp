@@ -27,15 +27,9 @@ body {
 }
 
 nav {
-  background-color: #232f3e;
+  background-color: #343a40!important;
   padding: 1rem 1rem;
   color: white;
-}
-
-nav2{
-    background-color: #6c9dda;
-    padding: 1rem 1rem;
-    color: white;
 }
 
 
@@ -47,8 +41,44 @@ nav2{
 
 /* Footer */
 footer {
+  background-color: #343a40!important;
     margin-top: 8rem;
     color: grey;
     bottom: 0;
     width: 100%;
+    font-size: 20px;
   }
+footer a.deco-none{
+  color:#f8f9fa!important;
+}
+footer a.deco-none:hover{
+  color:#cbd3da!important;
+}
+
+#nav2{
+    background-color: #6c9dda!important;
+    padding: 1rem 1rem;
+}
+#nav2 a.nav-link{
+  font-size: 20px!important;
+}
+#nav2 a.nav-link:hover{
+  color: #cbd3da!important;
+}
+a.deco-none {
+  text-decoration: none;
+}
+
+.zoom:hover {
+  transform: scale(1.2); /* (120% zoom) */
+}
+
+/* top nav resposiveness */
+@media only screen and (max-width: 600px) {
+  #nav1{
+    display: none;
+  }
+  .zoom:hover {
+    transform: scale(.9); /* (90% zoom) */
+  }
+}
