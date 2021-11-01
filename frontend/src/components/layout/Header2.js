@@ -6,19 +6,19 @@ const Header2 = () => {
         <Fragment>
          <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav2">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">LegalHelp Online</Link>
+            <Link className="navbar-brand" to="/">LegalHelpOnline</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                       <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                  </li>
+                  </li> */}
                 </ul>
                 <ul className="navbar-nav d-flex justify-content-end">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Legal Services
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -61,26 +61,6 @@ const Header2 = () => {
             </div>
           </div>
         </nav>
-        <section className="card">
-          <img src={'/imgs/legal-advice.jpg'}
-          className="card-img img-reponsive"
-          width="100%"
-          alt="legal advice"/>
-          <div className="card-img-overlay mt-lg-5">
-            <div className="d-flex justify-content-center">
-              <a href="javascript:void(0)" 
-                className="btn btn-success btn-lg ml-5"
-                id="free_legal_advice">Free Legal Advice
-              </a>
-              &nbsp; &nbsp; &nbsp; &nbsp;
-              <a href="javascript:void(0)" 
-                className="btn btn-info btn-lg"
-                id="ask_question"> Ask Question?
-              </a>
-            </div>
-            <h2 className="text-center text-light mb-3">Free Legal Help Online</h2>
-          </div>
-        </section>
         </Fragment>
     )
 }
