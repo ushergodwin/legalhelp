@@ -25,9 +25,9 @@ function App() {
         <Route  path="/" component={Home} exact/>
 
         <Route  path="/login" component={Login} />
-        <Footer/>
         <LegalHelpBot/>
         </div>
+        <Footer/>
 
     </div>
     </Router>
