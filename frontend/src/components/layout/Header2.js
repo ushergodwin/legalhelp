@@ -48,14 +48,14 @@ const Header2 = () => {
                     <a className="nav-link" href="#">Blog</a>
                   </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="#">About</a>
+                      <Link className="nav-link" to="/about">About</Link>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link btn btn-outline-light" 
-                      href="javascript:void(0)" id="donate-btn"
+                      href="#!" id="donate-btn"
                       title="Donate For Justice"
                       >
-                         <i className="fas fa-donate"></i> Donate</a>
+                         <i className="fas fa-donate"></i> Donate For Justice</a>
                     </li>
                 </ul>
             </div>

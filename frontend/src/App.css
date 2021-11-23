@@ -150,3 +150,27 @@ a.deco-none {
   font-size: 0.9rem;
   color: grey;
 }
+
+/* aboutus */
+#about-message{
+  font-size: 20px;
+  line-height: 28px;
+
+}
+
+/* #about-top p{
+  font-size: 25px;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+} */
+
+#about-image{
+  top: 0px;
+  max-width: 100%;
+  height: auto;
+  width: auto !important;
+  margin: 20px auto;
+  float:right;
+}
