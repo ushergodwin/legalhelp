@@ -23,7 +23,7 @@ class blogController
         });dd
     });
 
-    allArticles = catchAsyncError( async (req, res, next) => {
+    allArticles = CatchAsyncError( async (req, res, next) => {
         await Blog.find({article_status: 'published'}).sort('-published_at')
         .exec((err, docs) => {
             res.status(200).json({
