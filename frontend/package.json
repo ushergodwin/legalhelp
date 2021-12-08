@@ -45,10 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< Updated upstream
   }
-=======
   },
   "proxy": "http://127.0.0.1:4000"
->>>>>>> Stashed changes
+  },
+  "proxy":"http://127.0.0.1:4000"
 }
