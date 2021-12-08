@@ -11,7 +11,7 @@ import Dashboard from './components/user/Dashboard'
 import NewBlog from './components/user/NewBlog'
 import BlogList from './components/user/BlogList'
 
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 
 function App() {
   return (

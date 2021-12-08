@@ -2,28 +2,45 @@ const ErrorHandler = require('../utils/errorHandler')
 const CatchAsyncError = require('../middlewares/catchAsyncError')
 const Blog = require('../models/blog');
 const { randomUUID } = require('crypto');
+//ok let me work now and i will let u know when am done
+//kale, u can now disconnect
 
 class blogController
 {
     createArticle = CatchAsyncError( async (req, res, next) => {
-        const article = {
-            title: req.body.title,
-            img_banner: req.body.img_banner,
-            slung: req.body.slung + randomUUID(),
-            author: req.body.author,
-            content: req.body.content,
-            comments: []
 
-        }
-        await Blog.create(article);
+        let img_banner = [];
+
+  if (typeof req.body.img_banner === "string") {
+    img_banner.push(req.body.img_banner);
+  } else {
+    img_banner = req.body.img_banner;
+  }
+
+  let imagesLinks = []; 
+
+  for(let i = 0; i < img_banner.length; i++) {
+    const result = await cloudinary.v2.uploader.upload(img_banner[i], {
+      folder: "Blogimages",
+    });
+
+    imagesLinks.push({
+      public_id: result.public_id,
+      url: result.secure_url,
+    });
+  }
+  req.body.img_banner = imagesLinks;
+  
+       
+    const article = await Blog.create(req.body);
 
         res.status(200).json({
             success:true,
-            message:"Article saved and published successfully."
-        });dd
+            article
+        });
     });
 
-    allArticles = catchAsyncError( async (req, res, next) => {
+    allArticles = CatchAsyncError( async (req, res, next) => {
         await Blog.find({article_status: 'published'}).sort('-published_at')
         .exec((err, docs) => {
             res.status(200).json({
