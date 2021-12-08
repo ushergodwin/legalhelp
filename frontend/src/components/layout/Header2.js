@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 const Header2 = () => {
     return (
         <Fragment>
-         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav2">
+         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top nav2">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">LegalHelpOnline</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,14 +48,14 @@ const Header2 = () => {
                     <a className="nav-link" href="#">Blog</a>
                   </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="#">About</a>
+                      <Link className="nav-link" to="/about">About</Link>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link btn btn-outline-light" 
-                      href="javascript:void(0)" id="donate-btn"
+                      href="#!" id="donate-btn"
                       title="Donate For Justice"
                       >
-                         <i className="fas fa-donate"></i> Donate</a>
+                         <i className="fas fa-donate"></i> Donate For Justice</a>
                     </li>
                 </ul>
             </div>

@@ -6,6 +6,7 @@ import Header2 from './components/layout/Header2'
 import Footer from './components/layout/Footer'
 import Home from './components/Home';
 import Login from './components/user/Login'
+import AboutUs from './components/AboutUs'
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +24,8 @@ function App() {
         <Header2/>
         <div className="container container-fluid">
         <Route  path="/" component={Home} exact/>
+        <Route  path="/about" component={AboutUs} exact/>
+
 
         <Route  path="/login" component={Login} />
         <LegalHelpBot/>
