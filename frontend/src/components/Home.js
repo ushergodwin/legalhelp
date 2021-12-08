@@ -1,9 +1,21 @@
 import React, {Fragment} from 'react';
 import { Link} from 'react-router-dom'
 import MetaData from './layout/MetaData'
-
+import Impact from './Impact';
 export default function Home() {
-    
+    function totalNumberOfPeopleServed()
+    {
+        const num = Math.floor(Math.random() * (999999 - 0 + 1)) + 0;
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+    let counter = 0;
+    let totalInterval = setInterval(() => {
+        counter += 1007;
+        if(counter === totalNumberOfPeopleServed())
+        {
+            clearInterval(totalInterval);
+        }
+    }, 100);
     return (
         <Fragment>
             <MetaData title={'Get Legal advice Online'}/>
@@ -149,7 +161,9 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-          
+          <section className="mt-5">
+            <Impact/>
+          </section>
         </Fragment>
     );
 }

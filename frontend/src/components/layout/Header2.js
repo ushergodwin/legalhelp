@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 const Header2 = () => {
     return (
         <Fragment>
-         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="nav2">
+         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top nav2">
           <div className="container-fluid">
             <Link className="navbar-brand" to="/">LegalHelpOnline</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -19,7 +19,7 @@ export default function LegalServices() {
                                         <h3>
                                             <Link to="#"
                                             className="deco-none stretched-link">
-                                                Free Legal Help Online
+                                               Legal Advice
                                             </Link>
                                         </h3>
                                     </div>
