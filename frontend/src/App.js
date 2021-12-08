@@ -1,24 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
 
+import Header1 from './components/layout/Header1'
+import Header2 from './components/layout/Header2'
+import Footer from './components/layout/Footer'
+import Home from './components/Home';
+import Login from './components/user/Login'
+import AboutUs from './components/AboutUs'
+import Dashboard from './components/user/Dashboard'
+import NewBlog from './components/user/NewBlog'
+import BlogList from './components/user/BlogList'
+
+import {BrowserRouter as Router} from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <div className="App">
+        <Header1/>
+        <Header2/>
+        <div className="container container-fluid">
+        <Route  path="/" component={Home} exact/>
+        <Route  path="/about" component={AboutUs} exact/>
+
+        <Route  path="/login" component={Login} />
+
+        
+        </div>
+
+          <div className="mt-1">
+        <Route path="/dashboard" isAdmin={true}  component={Dashboard} exact />
+        </div>
+         
+        <Route  path="/blog/new" component={NewBlog} exact/>
+        <Route  path="/blog/articles" component={BlogList} exact/>
+
+        <Footer/>
+
     </div>
+
+    </Router>
   );
 }
 

@@ -36,3 +36,150 @@
     transform: rotate(360deg);
   }
 }
+
+/* Login & Register */
+.btn.focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+#login_btn
+ {
+  background-color: #25a035;
+  padding: 0.4rem 1.8rem;
+  font-family: calibri;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+
+  font-weight: 700;
+}
+
+.wrapper form {
+  padding: 2.5rem 3rem;
+}
+
+.wrapper form .btn {
+  background-color: #33a756;
+  border-color: #2caa2c;
+  color: white;
+  margin-top: 2.5rem;
+}
+
+.wrapper form a {
+  font-size: 0.9rem;
+  color: grey;
+}
+
+/* aboutus */
+#about-message{
+  font-size: 20px;
+  line-height: 28px;
+
+}
+
+/* #about-top p{
+  font-size: 25px;
+  line-height: 28px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+} */
+
+#about-image{
+  top: 0px;
+  max-width: 100%;
+  height: auto;
+  width: auto !important;
+  margin: 20px auto;
+  float:right;
+}
+
+/* Admin Sidebar */
+
+.sidebar-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  min-height: 100vh;
+  font-weight: normal;
+
+  margin-top: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+#sidebar {
+  min-width: 100%;
+  max-width: 100%;
+  background: #232f3e;
+  color: #fff;
+  transition: all 0.3s;
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #232f3e;
+}
+#sidebar ul.components {
+  padding: 5px 0px;
+  border-bottom: 1px solid #232f3e;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+#sidebar ul li a:hover {
+  color: #232f3e;
+  background: #fff;
+}
+
+#sidebar ul li a i {
+  margin-right: 0.3rem;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded='true'] {
+  color: #fff;
+  background: #232f3e;
+}
+a[data-toggle='collapse'] {
+  position: relative;
+}
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+ul ul a {
+  font-size: 1rem !important;
+  padding-left: 30px !important;
+  background: #232f3e;
+}
+
+ul.CTAs {
+  padding: 20px;
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
