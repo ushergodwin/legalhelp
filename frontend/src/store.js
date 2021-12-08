@@ -15,8 +15,6 @@ const reducer = combineReducers({
     newBlog:newBlogReducer,
     blog:blogsReducer
 
-    user:userReducer
-
 })
 
 //all information we need to be store in the state

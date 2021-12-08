@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer'
 import Home from './components/Home';
 import Login from './components/user/Login'
 import AboutUs from './components/AboutUs'
+import LegalHelpBot from './components/LegalHelpBot'
 
 import Dashboard from './components/user/Dashboard'
 import NewBlog from './components/user/NewBlog'
@@ -24,8 +25,7 @@ function App() {
         <Route  path="/" component={Home} exact/>
         <Route  path="/about" component={AboutUs} exact/>
 
-
-        <Route  path="/login" component={Login} />
+        <Route  path="/login" component={Login} exact/>
 
         <LegalHelpBot/>
 
@@ -38,16 +38,8 @@ function App() {
         <Route  path="/blog/new" component={NewBlog} exact/>
         <Route  path="/blog/articles" component={BlogList} exact/>
 
-        <Footer/>
-
-    </div>
-
-
-        <Route  path="/login" component={Login} />
         </div>
         <Footer/>
-
-    </div>
 
     </Router>
   );

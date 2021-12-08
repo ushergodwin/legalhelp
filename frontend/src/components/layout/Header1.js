@@ -16,8 +16,6 @@ const Header1 = () => {
           <span id="call" className="ml-3">
 
           Need Help? Call +256784414719 <i className="fab fa-whatsapp"></i>
-
-          Need Help? Call +256784414719 <i class="fab fa-whatsapp"></i>
  
           </span>
           

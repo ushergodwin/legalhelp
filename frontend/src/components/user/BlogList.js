@@ -108,7 +108,7 @@ const BlogList = ({history}) => {
             <div className="row">
                 <div className="col-12 col-md-2">
                     <SideBar/>
-                </div>
+                </div>  
 
                 <div className='col-12 col-md-10'>
                     <Fragment>

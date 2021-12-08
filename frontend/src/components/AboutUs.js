@@ -16,7 +16,7 @@ const AboutUs = () => {
         </div>
         <div className="about">
         <h2>About Us</h2>
-        <hr />
+       
         <p id="about-message">
           legalHelpOnline works to ensure everyone has access to justice. Our
           experts teams work across practice areas on nearly every area of law
