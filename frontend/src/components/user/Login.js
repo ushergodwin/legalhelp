@@ -22,7 +22,11 @@ const Login = ({ history }) => {
 
   useEffect(() => {
     if (isUserAuthenticated) {
+
       history.push("/dashboard");
+      
+    history.push("/");
+
     }
     if (error) {
       alert.error(error);
@@ -69,7 +73,12 @@ const Login = ({ history }) => {
                   />
                 </div>
 
-                <button
+
+                <Link to="/password/forgot" className="float-right mb-4">
+                  Forgot Password?
+                </Link>
+
+      <button
                   id="login_button"
                   type="submit"
                   className="btn btn-block py-3"
@@ -77,6 +86,10 @@ const Login = ({ history }) => {
                   LOGIN
                 </button>
 
+
+                <Link to="/register" className="float-right mt-3">
+                  New User?
+                </Link>
               </form>
             </div>
           </div>

@@ -2,13 +2,15 @@ const ErrorHandler = require('../utils/errorHandler')
 
 module.exports = (err,req,res,next) => {
     err.statusCode = err.statusCode || 500;
-    err.message = err.message || 'Internal Server Error'
+
 
     if(process.env.NODE_ENV === 'DEVELOPMENT'){
+        console.log(err)
+        
         res.status(err.statusCode).json({
             sucess:false,
             error:err,
-            message: err.message || 'Internal Server Error',
+            message: err.message,
             stack:err.stack
         })
     }
@@ -36,9 +38,4 @@ module.exports = (err,req,res,next) => {
         })
     }
 
-    res.status(err.statusCode).json({
-        success: false,
-        error: err.stack
-        
-    })
 }

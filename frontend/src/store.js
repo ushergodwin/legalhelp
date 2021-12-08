@@ -3,14 +3,20 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import {userReducer} from './reducers/userReducers'
+
 import {blogsReducer,newBlogReducer} from './reducers/blogReducers'
+
 
 
 //rducers for every resource in the backend will be combined here
 const reducer = combineReducers({
+
     user:userReducer,
     newBlog:newBlogReducer,
     blog:blogsReducer
+
+    user:userReducer
+
 })
 
 //all information we need to be store in the state
