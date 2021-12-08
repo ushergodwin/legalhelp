@@ -21,6 +21,9 @@ import {
 } from 'react-router-dom';
 
 
+import LegalHelpBot from './components/LegalHelpBot';
+
+
 function App() {
   return (
     <Router>
@@ -34,7 +37,8 @@ function App() {
 
         <Route  path="/login" component={Login} />
 
-        
+        <LegalHelpBot/>
+
         </div>
 
           <div className="mt-1">

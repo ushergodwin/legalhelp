@@ -6,8 +6,11 @@ import { Provider } from 'react-redux'
 import store from './store'
 
 import { positions, transitions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic'
+import AlertTemplate from 'react-alert-template-basic';
 
+import Kommunicate from '@kommunicate/kommunicate-chatbot-plugin';
+let optionalSettings = {"popupWidget":true,"automaticChatOpenOnNavigation":true}
+Kommunicate.init("3c1d376f0efc52a894be79d455446aade" , optionalSettings);
 const options = {
   timeout: 5000,
   position: positions.BOTTOM_CENTER,
