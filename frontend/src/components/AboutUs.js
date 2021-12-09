@@ -14,7 +14,7 @@ const AboutUs = () => {
             <img src={"/imgs/about-slider.png"} alt="aboutimage" />
           </div>
         </div>
-        <div className="about">
+        <div className="about"> 
         <h2>About Us</h2>
        
         <p id="about-message">

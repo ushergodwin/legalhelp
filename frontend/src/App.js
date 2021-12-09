@@ -12,6 +12,7 @@ import LegalHelpBot from './components/LegalHelpBot'
 import Dashboard from './components/user/Dashboard'
 import NewBlog from './components/user/NewBlog'
 import BlogList from './components/user/BlogList'
+import Blogs from './components/blog/Blogs'
 
 import {BrowserRouter as Router,Route} from 'react-router-dom';
 
@@ -37,6 +38,7 @@ function App() {
          
         <Route  path="/blog/new" component={NewBlog} exact/>
         <Route  path="/blog/articles" component={BlogList} exact/>
+        <Route  path="/blogs" component={Blogs} exact/>
 
         </div>
         <Footer/>

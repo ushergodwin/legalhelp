@@ -41,13 +41,13 @@ class blogController
     });
 
     allArticles = CatchAsyncError( async (req, res, next) => {
-        await Blog.find({article_status: 'published'}).sort('-published_at')
-        .exec((err, docs) => {
+        const articles = await Blog.find();
+
             res.status(200).json({
                 success:true,
-                articles: docs
+                articles
             });
-        });
+       
     });
 
     //admin publish or un publish an article

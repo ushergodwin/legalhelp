@@ -23,7 +23,7 @@ export const getBlogs = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: ADMIN_BLOG_FAIL,
-        payload: error.response.data.message,
+        payload: error
       });
     }
   };
