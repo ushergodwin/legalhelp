@@ -18,7 +18,7 @@ const Header2 = () => {
                 </ul>
                 <ul className="navbar-nav d-flex justify-content-end">
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Legal Services
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -30,11 +30,11 @@ const Header2 = () => {
                     <li><Link className="dropdown-item" to="#">Employment / Labour</Link></li>
                     <li><Link className="dropdown-item" to="#">Cyber Crime Law</Link></li>
                     <li><hr className="dropdown-divider"/></li>
-                    <li><a className="dropdown-item" href="#">See All</a></li>
+                    <li><a className="dropdown-item" href="#!">See All</a></li>
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Legal Documents
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,7 +45,7 @@ const Header2 = () => {
                   </ul>
                 </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Blog</a>
+                  <Link to="/#blog" class="nav-link">Blog</Link>
                   </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/about">About</Link>

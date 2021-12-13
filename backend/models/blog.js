@@ -5,7 +5,18 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: [true, 'Each article must have a title']
     },
-    img_banner: String,
+    img_banner:[
+        {
+            public_id:{
+               type:String,
+                required:true
+            },
+            url:{
+                type:String,
+                required:true,
+            }
+        }
+        ],
     slung: {
         type: String,
         required: [true, 'Provide the slung and try again'],

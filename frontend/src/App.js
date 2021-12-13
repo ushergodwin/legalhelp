@@ -7,14 +7,14 @@ import Footer from './components/layout/Footer'
 import Home from './components/Home';
 import Login from './components/user/Login'
 import AboutUs from './components/AboutUs'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+import LegalHelpBot from './components/LegalHelpBot'
 
-import LegalHelpBot from './components/LegalHelpBot';
+import Dashboard from './components/user/Dashboard'
+import NewBlog from './components/user/NewBlog'
+import BlogList from './components/user/BlogList'
+import Blogs from './components/blog/Blogs'
+
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 
 function App() {
   return (
@@ -26,13 +26,23 @@ function App() {
         <Route  path="/" component={Home} exact/>
         <Route  path="/about" component={AboutUs} exact/>
 
+        <Route  path="/login" component={Login} exact/>
 
-        <Route  path="/login" component={Login} />
         <LegalHelpBot/>
+
+        </div>
+
+          <div className="mt-1">
+        <Route path="/dashboard" isAdmin={true}  component={Dashboard} exact />
+        </div>
+         
+        <Route  path="/blog/new" component={NewBlog} exact/>
+        <Route  path="/blog/articles" component={BlogList} exact/>
+        <Route  path="/blogs" component={Blogs} exact/>
+
         </div>
         <Footer/>
 
-    </div>
     </Router>
   );
 }

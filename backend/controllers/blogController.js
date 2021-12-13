@@ -1,40 +1,57 @@
 const ErrorHandler = require('../utils/errorHandler')
-const catchAsyncError = require('../middlewares/catchAsyncError')
+const CatchAsyncError = require('../middlewares/catchAsyncError')
 const Blog = require('../models/blog');
-const { randomUUID } = require('crypto');
+const cloudinary = require('cloudinary')
+//ok let me work now and i will let u know when am done
+//kale, u can now disconnect
 
 class blogController
 {
-    createArticle = catchAsyncError( async (req, res, next) => {
-        const article = {
-            title: req.body.title,
-            img_banner: req.body.img_banner,
-            slung: req.body.slung + randomUUID(),
-            author: req.body.author,
-            content: req.body.content,
-            comments: []
+    createArticle = CatchAsyncError( async (req, res, next) => {
 
-        }
-        await Blog.create(article);
+        let img_banner = [];
+
+  if (typeof req.body.img_banner === "string") {
+    img_banner.push(req.body.img_banner);
+  } else {
+    img_banner = req.body.img_banner;
+  }
+
+  let imagesLinks = []; 
+
+  for(let i = 0; i < img_banner.length; i++) {
+    const result = await cloudinary.v2.uploader.upload(img_banner[i], {
+      folder: "Blogimages",
+    });
+
+    imagesLinks.push({
+      public_id: result.public_id,
+      url: result.secure_url,
+    });
+  }
+  req.body.img_banner = imagesLinks;
+  
+       
+    const article = await Blog.create(req.body);
 
         res.status(200).json({
             success:true,
-            message:"Article saved and published successfully."
-        });dd
-    });
-
-    allArticles = catchAsyncError( async (req, res, next) => {
-        await Blog.find({article_status: 'published'}).sort('-published_at')
-        .exec((err, docs) => {
-            res.status(200).json({
-                success:true,
-                articles: docs
-            });
+            article
         });
     });
 
+    allArticles = CatchAsyncError( async (req, res, next) => {
+        const articles = await Blog.find();
+
+            res.status(200).json({
+                success:true,
+                articles
+            });
+       
+    });
+
     //admin publish or un publish an article
-    publishArticle = catchAsyncError( async (req, res, next) => {
+    publishArticle = CatchAsyncError( async (req, res, next) => {
         const status = req.body.status;
         const article = await Blog.findById(req.body.id);
         if(article === null)
@@ -70,7 +87,7 @@ class blogController
     });
 
     //admin delete article
-    deleteArticle = catchAsyncError( async (req, res, next) => {
+    deleteArticle = CatchAsyncError( async (req, res, next) => {
         const deleted = await Blog.deleteOne({_id: req.body.id});
         if(deleted.deletedCount > 0)
         {
@@ -84,12 +101,12 @@ class blogController
 
 
     //get one article
-    getOneArticle = catchAsyncError( async (req, res, next) => {
+    getOneArticle = CatchAsyncError( async (req, res, next) => {
         const slung = req.params.slung;
         const article = await Blog.findOne({slung: slung, article_status: 'published'});
         if(article === null)
         {
-            return next(new ErrorHandler('Page not found', 404));
+            return next(new ErrorHandler('Page not found', 403));
         }
         return res.status(200).json({
             success: true,
@@ -101,7 +118,7 @@ class blogController
     //admin update article
 
 
-    updateArticle = catchAsyncError( async (req, res, next) => {
+    updateArticle = CatchAsyncError( async (req, res, next) => {
         const article = {
             title: req.body.title,
             img_banner: req.body.img_banner,
@@ -121,7 +138,7 @@ class blogController
     });
 
     //save comment for an article
-    comment = catchAsyncError( async (req, res, next) => {
+    comment = CatchAsyncError( async (req, res, next) => {
         const comment = {
             email: req.body.email,
             name: req.body.name,

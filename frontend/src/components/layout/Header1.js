@@ -14,7 +14,9 @@ const Header1 = () => {
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
         
           <span id="call" className="ml-3">
-          Need Help? Call +256784414719 <i class="fab fa-whatsapp"></i>
+
+          Need Help? Call +256784414719 <i className="fab fa-whatsapp"></i>
+ 
           </span>
           
         </div>

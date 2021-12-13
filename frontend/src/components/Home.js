@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import { Link} from 'react-router-dom'
 import MetaData from './layout/MetaData'
 import Impact from './Impact';
+import Blogs from './blog/Blogs'
 export default function Home() {
     function totalNumberOfPeopleServed()
     {
@@ -161,7 +162,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-          <section className="mt-5">
+          <section id="blog" className="mt-5">
+              <Blogs/>
             <Impact/>
           </section>
         </Fragment>
