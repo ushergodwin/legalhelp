@@ -6,6 +6,9 @@ import{
     NEW_BLOG_SUCCESS,
     NEW_BLOG_FAIL,
     NEW_BLOG_RESET,
+    BLOG_DETAILS_REQUEST,
+    BLOG_DETAILS_SUCCESS,
+    BLOG_DETAILS_FAIL,
     CLEAR_ERRORS
 } from '../constants/blogConstants'
 
@@ -63,6 +66,34 @@ export const newBlogReducer = (state = {article:{}}, action) =>{
             return{
                 ...state,
                 success: false
+            }
+         case CLEAR_ERRORS:
+                return{
+                    ...state,
+                    error:null
+                }
+    
+        default:
+                return state;
+    }
+}
+
+export const blogDetailsReducer = (state = {article:{}}, action) =>{
+    switch (action.type) {
+        case BLOG_DETAILS_REQUEST:
+            return{
+                ...state,
+                loading: true
+            }
+        case BLOG_DETAILS_SUCCESS:
+            return{
+                loading:false,
+                article: action.payload
+            }
+        case BLOG_DETAILS_FAIL:
+            return{
+                ...state,
+                error: action.payload
             }
          case CLEAR_ERRORS:
                 return{

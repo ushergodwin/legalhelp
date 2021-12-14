@@ -102,17 +102,18 @@ class blogController
 
     //get one article
     getOneArticle = CatchAsyncError( async (req, res, next) => {
-        const slung = req.params.slung;
-        const article = await Blog.findOne({slung: slung, article_status: 'published'});
-        if(article === null)
-        {
-            return next(new ErrorHandler('Page not found', 403));
-        }
-        return res.status(200).json({
-            success: true,
-            article: article
-        });
-    });
+        const article = await Blog.findById(req.params.id);
+
+  if (!article) {
+    return next(new ErrorHandler("Article not found", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    article
+  })
+
+    })
 
 
     //admin update article

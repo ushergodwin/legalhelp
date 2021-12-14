@@ -5,6 +5,9 @@ import{
     NEW_BLOG_REQUEST,
     NEW_BLOG_SUCCESS,
     NEW_BLOG_FAIL,
+    BLOG_DETAILS_REQUEST,
+    BLOG_DETAILS_SUCCESS,
+    BLOG_DETAILS_FAIL,
     CLEAR_ERRORS
 } from '../constants/blogConstants'
 
@@ -51,6 +54,24 @@ export const getBlogs = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: NEW_BLOG_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
+
+  export const getBlogDetails = (id) => async (dispatch) => {
+    try {
+      dispatch({ type: BLOG_DETAILS_REQUEST });
+  
+      const { data } = await axios.get(`/api/v1/blog/${id}`);
+  
+      dispatch({
+        type: BLOG_DETAILS_SUCCESS,
+        payload: data.article,
+      });
+    } catch (error) {
+      dispatch({
+        type: BLOG_DETAILS_FAIL,
         payload: error.response.data.message,
       });
     }

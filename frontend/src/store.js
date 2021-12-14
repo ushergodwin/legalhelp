@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 import {userReducer} from './reducers/userReducers'
 
-import {blogsReducer,newBlogReducer} from './reducers/blogReducers'
+import {blogsReducer,blogDetailsReducer,newBlogReducer} from './reducers/blogReducers'
 
 
 
@@ -13,7 +13,8 @@ const reducer = combineReducers({
 
     user:userReducer,
     newBlog:newBlogReducer,
-    blog:blogsReducer
+    blog:blogsReducer,
+    blogDetails:blogDetailsReducer
 
 })
 
