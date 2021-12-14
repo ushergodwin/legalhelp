@@ -13,4 +13,4 @@ router.route('/admin/blog/:id').delete(Controller.deleteArticle);
 router.route('/blog/:id').get(Controller.getOneArticle);
 router.route('/blog/article/update').post(Controller.updateArticle);
 router.route('/blog/article/comment').post(Controller.comment);
-module.exports = router;
+module.exports = router;    
