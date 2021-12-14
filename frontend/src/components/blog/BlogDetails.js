@@ -61,12 +61,12 @@ const BlogDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={article.title} />
+          <MetaData title={article&&article.title} />
           <div className="row f-flex justify-content-around">
-            <div className="col-12 col-lg-5 img-fluid" id="product_image">
+            <div className="col-12 col-lg-5 img-fluid" >
               {/* //new bootstrap Component for carousel */}
               <Carousel pause="hover">
-                {article.img_banner &&
+                {article&& article.img_banner &&
                   article.img_banner.map((image) => (
                     <Carousel.Item
                       className="carousel-item"
@@ -83,20 +83,22 @@ const BlogDetails = ({ match }) => {
             </div>
 
             <div className="col-12 col-lg-5 mt-5">
-              <h3>{article.title}</h3>
-              <p id="product_id">Article # {article._id}</p>
+              <h3>{article&&article.title}</h3>
+              <p id="product_id">Article # {article&&article._id}</p>
 
               <hr />
 
               <h4 className="mt-2">Content:</h4>
-              <p>{article.content}</p>
+              <p>{article&&article.content}</p>
               <hr />
               <p id="product_seller mb-3">
                 Published By:  
-                     <strong>{article.author}</strong>
-              <hr/>
+                     <strong>{article&&article.author}</strong>
+                     </p>
+                     <hr/>
+                     <p>
                 Slung:  
-                        <strong>{article.slung}</strong>
+                        <strong>{article&&article.slung}</strong>
               </p>
               
 

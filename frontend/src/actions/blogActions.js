@@ -8,6 +8,10 @@ import{
     BLOG_DETAILS_REQUEST,
     BLOG_DETAILS_SUCCESS,
     BLOG_DETAILS_FAIL,
+    DELETE_BLOG_REQUEST,
+    DELETE_BLOG_SUCCESS,
+    DELETE_BLOG_FAIL,
+    DELETE_BLOG_RESET,
     CLEAR_ERRORS
 } from '../constants/blogConstants'
 
@@ -26,7 +30,7 @@ export const getBlogs = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: ADMIN_BLOG_FAIL,
-        payload: error
+        payload: error.response.data.message
       });
     }
   };
@@ -54,7 +58,7 @@ export const getBlogs = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: NEW_BLOG_FAIL,
-        payload: error.response.data.message,
+        payload: error.response.data.message
       });
     }
   };
@@ -72,10 +76,30 @@ export const getBlogs = () => async (dispatch) => {
     } catch (error) {
       dispatch({
         type: BLOG_DETAILS_FAIL,
-        payload: error.response.data.message,
+        payload: error.response.data.message
       });
     }
   };
+
+  //delete blog (admin)
+export const deleteBlog = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE_BLOG_REQUEST });
+
+    const { data } = await axios.delete(`/api/v1/admin/blog/${id}`);
+
+    dispatch({
+      type: DELETE_BLOG_SUCCESS,
+      payload: data.success,
+    });
+    console.log(data.success);
+  } catch (error) {
+    dispatch({
+      type: DELETE_BLOG_FAIL,
+      payload: error.response.data.message
+    });
+  }
+};
   
   export const clearErrors = () => async (dispatch) => {
     dispatch({ type: CLEAR_ERRORS });

@@ -13,14 +13,14 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {getBlogs,deleteBlog, clearErrors} from "../../actions/blogActions"
 
-// import { DELETE_BLOG_RESET } from '../../'
+import { DELETE_BLOG_RESET } from '../../constants/blogConstants'
 
 const BlogList = ({history}) => {
 
     const alert = useAlert()
     const dispatch = useDispatch()
 
-    // const {error: deleteError, isRemoved } = useSelector((state) => state.product)
+    const {error: deleteError, isRemoved } = useSelector((state) => state.blogReducer)
     const {loading, error, articles} = useSelector(state => state.blog)
 
     useEffect(()=>{
@@ -31,17 +31,17 @@ const BlogList = ({history}) => {
             dispatch(clearErrors())
         }
 
-        // if(deleteError){
-        //     alert.error(deleteError)
-        //     dispatch(clearErrors())
-        // }
+        if(deleteError){
+            alert.error(deleteError)
+            dispatch(clearErrors())
+        }
 
-        // if(isRemoved){
-        //     alert.success('Article Deleted Successfully')
-        //     history.push('/admin/products')
-        //     dispatch({ type: DELETE_BLOG_RESET})
-        // }
-    },[dispatch, alert, error,history])
+        if(isRemoved){
+            alert.success('Article Deleted Successfully')
+            history.push('/blog/articles')
+            dispatch({ type: DELETE_BLOG_RESET})
+        }
+    },[dispatch, alert, error,isRemoved,deleteError,history])
 
     const setBlogs = () =>{
         const data ={
@@ -76,7 +76,7 @@ const BlogList = ({history}) => {
             rows: []
         }
 
-        articles.forEach(article => {
+        articles&&articles.forEach(article => {
             data.rows.push({
                 id: article._id,
                 title:article.title,
@@ -87,9 +87,9 @@ const BlogList = ({history}) => {
                     <Link className="btn btn-primary py-1 px-2" to={`/blog/${article._id}`}>
                         <i className="fa fa-pencil"></i>
                         </Link>
-                        {/* <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=>deleteBlogHandler(article._id)}> */}
+                        <button className="btn btn-danger py-1 px-2 ml-2" onClick={()=>deleteBlogHandler(article._id)}>
                         <i className="fa fa-trash"></i>
-                        {/* </button> */}
+                        </button>
                </Fragment>       
             })
         })
@@ -98,9 +98,9 @@ const BlogList = ({history}) => {
     }
 
 
-    // const deleteBlogHandler = (id)=>{
-    //     dispatch(deleteBlog(id))
-    // }
+    const deleteBlogHandler = (id)=>{
+        dispatch(deleteBlog(id))
+    }
 
     return (
         <Fragment>
