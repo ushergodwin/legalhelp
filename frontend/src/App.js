@@ -14,6 +14,7 @@ import NewBlog from './components/user/NewBlog'
 import BlogList from './components/user/BlogList'
 import Blogs from './components/blog/Blogs'
 import BlogDetails from './components/blog/BlogDetails'
+import BlogsPage from './components/BlogsPage'
 
 
 import {BrowserRouter as Router,Route} from 'react-router-dom';
@@ -42,7 +43,7 @@ function App() {
         <Route  path="/blog/articles" component={BlogList} exact/>
         <Route  path="/blogs" component={Blogs} exact/>
         <Route path="/blog/:id" component={BlogDetails} exact/> 
-
+        <Route path="/blog/articles/all" component={BlogsPage} exact/>
         </div>
         <Footer/>
 

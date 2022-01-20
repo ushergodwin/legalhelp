@@ -41,8 +41,9 @@ const Blogs = ({match}) => {
         <h2 id="products_heading">Blogs</h2>
         <hr/>
          
-                    <div className="col-8 col-md-9" >
-                      <div className="row ">
+                    
+                    <div className="row">
+                    <div className="col-8 col-md-12" >
                         {articles && articles.map((article) => (
                   <Blog key={article._id} article={article} col={6} />
                 ))}

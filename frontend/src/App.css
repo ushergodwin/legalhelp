@@ -26,11 +26,11 @@ body {
   border-radius: 5px;
 }
 
-nav {
+nav, .nav-bg {
   background-color: #14617D!important;
-  padding: 1rem 1rem;
-  color: white;
+  color: white!important;
 }
+
 
 
 #donate_btn {
@@ -58,12 +58,19 @@ footer a.deco-none:hover{
 
 .nav2{
     background-color: #673AB7!important;
-    padding: 1rem 1rem;
+}
+.app-brand {
+  font-size: 25px!important;
 }
 .nav2 a.nav-link{
-  font-size: 20px!important;
+  font-size: 18px!important;
 }
 .nav2 a.nav-link:hover{
+  color: #cbd3da!important;
+}
+footer {
+  padding: 1rem 1rem;
+  background-color: #232f3e!important;
   color: #cbd3da!important;
 }
 a.deco-none {
@@ -81,6 +88,9 @@ a.deco-none {
   }
   .zoom:hover {
     transform: scale(.9); /* (90% zoom) */
+  }
+  .service-img {
+    height: auto;
   }
 }
 

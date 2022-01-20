@@ -3,22 +3,39 @@ import React, { Fragment } from "react";
 const Header1 = () => {
   return (
     <Fragment>
-      <nav className="navbar row sticky-top" id="nav1">
-        <div className="col-12 col-md-3">
-          <div className="navbar-brand">
-            <span><i className="fas fa-envelope"></i> <a href="mailto:egalhelponline@gmail.com" className="deco-none text-light">Email:legalhelponline@gmail.com</a> </span>
-          </div>
-        </div>
+      <nav className="navbar navbar-expand-md navbar-light sticky-top" id="nav1">
+        <div className="container-fluid">
+            <a href="#" className="navbar-brand">
+              <span><i className="fas fa-envelope text-light"></i> 
+                  <a href="mailto:egalhelponline@gmail.com" 
+                  className="deco-none text-light ml-2">
+                    Email: legalhelponline@gmail.com
+                  </a> 
+              </span>
+            </a>
+            <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarCollapse">
+                <div className="navbar-nav">
 
-        
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-        
-          <span id="call" className="ml-3">
-
-          Need Help? Call +256784414719 <i className="fab fa-whatsapp"></i>
- 
-          </span>
-          
+                </div>
+                <div className="navbar-nav ms-auto">
+                    <a href="#" className="nav-item nav-link">
+                      <h5>
+                        <span id="call" className="text-light">
+                          Need Help? Call +256784414719
+                        </span>
+                      </h5>
+                    </a>
+                    <a href="https://wa.me/+256784414719" className="nav-item nav-link deco-none">
+                       <h5>
+                          <i className="fab fa-whatsapp text-light"></i> 
+                          &nbsp;WhatsApp
+                       </h5>
+                      </a>
+                </div>
+            </div>
         </div>
       </nav>
     </Fragment>
