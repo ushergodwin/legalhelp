@@ -11,12 +11,13 @@ class Impact extends Component
           return dd.getFullYear() - 1;
       }
       timer() {
+        let result = this.totalNumberOfPeople()
         this.setState({
-          currentCount: this.totalNumberOfPeople(),
-          approximate: this.totalNumberOfPeople(),
-          cases: this.totalNumberOfPeople()
+          currentCount: result.currentCount,
+          approximate: result.approximate,
+          cases: result.cases
         })
-        if(this.state.currentCount > 200000) { 
+        if(this.state.currentCount < 200) { 
           clearInterval(this.intervalId);
         }
       }
@@ -29,7 +30,12 @@ class Impact extends Component
 
       totalNumberOfPeople()
       {
-          return Math.floor(Math.random() * (999999 - 0 + 1)) + 0;
+          let random = Math.floor(Math.random() * (200 - 80)) + 200;
+          return {
+              currentCount: Math.ceil((1 / 3 * random)),
+              approximate: Math.floor((1 / 4 * random) / random * 100),
+              cases: Math.floor(random / 2)
+          }
       }
 
     render(){
@@ -53,8 +59,8 @@ class Impact extends Component
                                 </div>
                                 <div className="card">
                                     <div className="card-body">
-                                        <h3 className="card-title" id="approximate-num">{ this.state.approximate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") }</h3>
-                                        <h4 className="card-text">Approximate number of female users served in {this.state.year}</h4>
+                                        <h3 className="card-title" id="approximate-num">{ this.state.approximate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") } %</h3>
+                                        <h4 className="card-text">Approximate propotion of female users served in {this.state.year}</h4>
 
                                     </div>
                                 </div>
