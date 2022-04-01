@@ -25,7 +25,7 @@ function App() {
       <div className="App">
         <Header1/>
         <Header2/>
-        <div className="container container-fluid">
+        <div className="container-fluid">
         <Route  path="/" component={Home} exact/>
         <Route  path="/about" component={AboutUs} exact/>
 

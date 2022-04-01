@@ -3,12 +3,7 @@ class Impact extends Component
 {
     constructor(props){
         super(props);
-        this.state = {currentCount: 10, approximate: 10, cases: 10, year: this.year()}
-      }
-      year()
-      {
-          let dd = new Date();
-          return dd.getFullYear() - 1;
+        this.state = {currentCount: 10, approximate: 10, cases: 10}
       }
       timer() {
         let result = this.totalNumberOfPeople()
@@ -22,7 +17,7 @@ class Impact extends Component
         }
       }
       componentDidMount() {
-        this.intervalId = setInterval(this.timer.bind(this), 10);
+        this.intervalId = setInterval(this.timer.bind(this), 100);
       }
       componentWillUnmount(){
         clearInterval(this.intervalId);
@@ -30,11 +25,10 @@ class Impact extends Component
 
       totalNumberOfPeople()
       {
-          let random = Math.floor(Math.random() * (200 - 80)) + 200;
           return {
-              currentCount: Math.ceil((1 / 3 * random)),
-              approximate: Math.floor((1 / 4 * random) / random * 100),
-              cases: Math.floor(random / 2)
+              currentCount: 1200,
+              approximate: 700,
+              cases: 1200
           }
       }
 
@@ -46,28 +40,22 @@ class Impact extends Component
                         <div className="col-lg-4">
                             <h3>Our Impact</h3>
                             <h5 className="text-muted">
-                                We provide access to legal services for a hundred thousands of persons, families, and businesses both large and small, who would otherwise remain underserved.
+                                We are committed to providing access to Justice to all people and ensuring that every
+                                person has equal access to Justice.
                             </h5>
                         </div>
                         <div className="col-lg-8">
                             <div className="card-group">
                                 <div className="card">
                                     <div className="card-body">
-                                    <h3 className="card-title" id="total-number"> { this.state.currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") }</h3>
-                                    <h4 className="card-text"> Total Number of People Served</h4>
+                                    <h3 className="card-title" id="total-number"> { this.state.currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") } + </h3>
+                                    <h4 className="card-text"> Approximate number of users served</h4>
                                     </div>
                                 </div>
                                 <div className="card">
                                     <div className="card-body">
-                                        <h3 className="card-title" id="approximate-num">{ this.state.approximate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") } %</h3>
-                                        <h4 className="card-text">Approximate propotion of female users served in {this.state.year}</h4>
-
-                                    </div>
-                                </div>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h3 className="card-title" id="num-of-cases"> { this.state.cases.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") }</h3>
-                                        <h4 className="card-text">Number of legal cases resolved</h4>
+                                        <h3 className="card-title" id="approximate-num">{ this.state.approximate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") } +</h3>
+                                        <h4 className="card-text">Approximate propotion of female users served </h4>
 
                                     </div>
                                 </div>

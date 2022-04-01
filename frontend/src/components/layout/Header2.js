@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom'
 const Header2 = () => {
     return (
         <Fragment>
-         <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top nav2">
+         <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top">
           <div className="container-fluid">
             <Link className="navbar-brand app-brand" to="/">
               <img src={'imgs/logo.png'} alt="legal help online logo" height="50"
@@ -24,11 +24,12 @@ const Header2 = () => {
                     LEGAL SERVICES
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><Link className="dropdown-item" to="#">Legal Help Online</Link></li>
+                    <li><Link className="dropdown-item" to="#">Free Legal Help Online</Link></li>
                     <li><Link className="dropdown-item" to="#">Criminal Law</Link></li>
                     <li><Link className="dropdown-item" to="#">Civil Litigation</Link></li>
-                    <li><Link className="dropdown-item" to="#">Divorce and Family</Link></li>
+                    <li><Link className="dropdown-item" to="#">Commercial Law</Link></li>
                     <li><Link className="dropdown-item" to="#">Land Matters / Property</Link></li>
+                    <li><Link className="dropdown-item" to="#">Marriage / Divorce</Link></li>
                     <li><Link className="dropdown-item" to="#">Employment / Labour</Link></li>
                     <li><Link className="dropdown-item" to="#">Cyber Crime Law</Link></li>
                     <li><hr className="dropdown-divider"/></li>
@@ -40,10 +41,15 @@ const Header2 = () => {
                     LEGAL DOCUMENTS
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="#">Guardianship Documents</a></li>
-                    <li><a className="dropdown-item" href="#">Health Care Power of Attorney</a></li>
-                    <li><a className="dropdown-item" href="#">Financial Power of Attorney</a></li>
-                    <li><a className="dropdown-item" href="#">Living Will</a></li>
+                    <li><a className="dropdown-item" href="#">Company Incorporation</a></li>
+                    <li><a className="dropdown-item" href="#">Land Agreement</a></li>
+                    <li><a className="dropdown-item" href="#">Caveats </a></li>
+                    <li><a className="dropdown-item" href="#">Affidavits </a></li>
+                    <li><a className="dropdown-item" href="#">Power of Attorney</a></li>
+                    <li><a className="dropdown-item" href="#">Wills </a></li>
+                    <li><a className="dropdown-item" href="#">Employment Contracts</a></li>
+                    <li><a className="dropdown-item" href="#">Affidavits </a></li>
+                    <li><a className="dropdown-item" href="#">Tenancy Agreement </a></li>
                     <li><hr className="dropdown-divider"/></li>
                     <li><a className="dropdown-item" href="#">All Document</a></li>
                   </ul>
@@ -53,10 +59,10 @@ const Header2 = () => {
                   </li>
                     <li className="nav-item">
                       <a className="nav-link btn btn-outline-light" 
-                      href="#!" id="donate-btn"
+                      href="https://ravesandbox.flutterwave.com/donate/dxh2adahc3vi" id="donate-btn"
                       title="Donate For Justice"
                       >
-                         <i className="fas fa-handshake"></i> DONATE FOR JUSTICE</a>
+                         <i className="fas fa-heart text-danger"></i> DONATE FOR JUSTICE</a>
                     </li>
                 </ul>
             </div>
