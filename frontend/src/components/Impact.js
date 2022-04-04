@@ -3,33 +3,38 @@ class Impact extends Component
 {
     constructor(props){
         super(props);
-        this.state = {currentCount: 10, approximate: 10, cases: 10}
-      }
-      timer() {
-        let result = this.totalNumberOfPeople()
-        this.setState({
-          currentCount: result.currentCount,
-          approximate: result.approximate,
-          cases: result.cases
-        })
-        if(this.state.currentCount < 200) { 
-          clearInterval(this.intervalId);
-        }
       }
       componentDidMount() {
-        this.intervalId = setInterval(this.timer.bind(this), 100);
+        this.numberOfUsers()
+        this.approximateNumberOfFemaleUsers()
       }
       componentWillUnmount(){
-        clearInterval(this.intervalId);
+      
       }
 
-      totalNumberOfPeople()
+      numberOfUsers() {
+          const num_users = 1200
+          let count = 0
+          let num_users_interval = setInterval(() => {
+            count += 50
+            if (count === num_users) {
+                clearInterval(num_users_interval)
+            }
+            document.getElementById('total-number').innerHTML = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          }, 100)
+      }
+
+      approximateNumberOfFemaleUsers()
       {
-          return {
-              currentCount: 1200,
-              approximate: 700,
-              cases: 1200
-          }
+          const female_users = 700
+          let count = 0
+          let num_users_interval = setInterval(() => {
+            count += 20
+            if (count === female_users) {
+                clearInterval(num_users_interval)
+            }
+            document.getElementById('approximate-num').innerHTML = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") 
+          }, 100)
       }
 
     render(){
@@ -48,13 +53,15 @@ class Impact extends Component
                             <div className="card-group">
                                 <div className="card">
                                     <div className="card-body">
-                                    <h3 className="card-title" id="total-number"> { this.state.currentCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") } + </h3>
+                                    <h3 className="card-title"> 
+                                    <span id="total-number"></span> + </h3>
                                     <h4 className="card-text"> Approximate number of users served</h4>
                                     </div>
                                 </div>
                                 <div className="card">
                                     <div className="card-body">
-                                        <h3 className="card-title" id="approximate-num">{ this.state.approximate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") } +</h3>
+                                        <h3 className="card-title">
+                                            <span id="approximate-num"></span> +</h3>
                                         <h4 className="card-text">Approximate propotion of female users served </h4>
 
                                     </div>

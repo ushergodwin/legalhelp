@@ -6,7 +6,7 @@ import {userReducer} from './reducers/userReducers'
 
 import {blogsReducer,blogDetailsReducer,newBlogReducer,blogReducer} from './reducers/blogReducers'
 
-
+import { askQuenstionReducer } from './reducers/askQuestionReducer'
 
 //rducers for every resource in the backend will be combined here
 const reducer = combineReducers({
@@ -15,7 +15,8 @@ const reducer = combineReducers({
     newBlog:newBlogReducer,
     blog:blogsReducer,
     blogDetails:blogDetailsReducer,
-    blogReducer:blogReducer
+    blogReducer:blogReducer,
+    askQuenstion: askQuenstionReducer
 
 })
 
