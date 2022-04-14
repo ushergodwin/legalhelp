@@ -30,7 +30,7 @@ const Header1 = () => {
                     </a>
                     <a href="https://wa.me/+256784414719" className="nav-item nav-link deco-none">
                        <h4>
-                          <i className="fab fa-whatsapp text-success"></i> 
+                          <i className="fab fa-whatsapp text-light"></i> 
                           &nbsp;
                        </h4>
                       </a>
