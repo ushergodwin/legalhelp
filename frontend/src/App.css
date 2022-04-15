@@ -105,9 +105,6 @@ a.deco-none {
     .service-img {
         height: auto;
     }
-    .bunner-img {
-        height: auto;
-    }
     .c-overlay {
         margin-top: 30px;
     }
@@ -324,4 +321,35 @@ ul.CTAs a {
 .img-bg {
     background-image: url(/src/imgs/photo-1589994965851-a8f479c573a9.avif);
     background-size: cover;
+}
+
+@media only screen and (min-width: 600px) {
+    .d-sm {
+        display: inline;
+    }
+    .d-lg {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .d-sm {
+        display: inline;
+    }
+    .d-lg {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 782px) {
+    .d-lg {
+        display: inline;
+    }
+    .d-sm {
+        display: none;
+    }
+}
+
+.lgs-sm {
+    margin-top: 35px;
 }

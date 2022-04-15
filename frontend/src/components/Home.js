@@ -98,19 +98,32 @@ export default function Home() {
             <section className="card w-100">
                 <img src={'/imgs/banner2.png'}
                 className="card-img img-reponsive bunner-img" alt="legal help online"
-                 height={`380px`}/>
+                 />
                 <div className="card-img-overlay mt-lg-5 c-overlay">
                     <h2 className="text-center text-light">Know Your Rights </h2>
                     <h4 className="text-center text-light">Get Free Legal Advice Online</h4>
+                    <br/>
                     <div className="d-flex justify-content-center">
+                       <section className='d-lg'>
                         <a href="javascript:void(0)" 
-                            className="btn btn-success btn-md ml-5"
-                            id="free_legal_advice">Free Legal Advice
-                        </a> &nbsp;&nbsp;
-                        <a href="#myModal" 
-                            className="btn btn-light btn-md"
-                            id="ask_question" data-bs-toggle="modal"> Ask Question?
-                        </a>
+                                className="btn btn-success btn-md ml-5"
+                                id="free_legal_advice">Free Legal Advice
+                            </a> &nbsp;&nbsp;
+                            <a href="#myModal" 
+                                className="btn btn-light btn-md"
+                                id="ask_question" data-bs-toggle="modal"> Ask Question?
+                            </a>
+                        </section>
+                        <section className='d-sm'>
+                            <a href="javascript:void(0)" 
+                                className="btn btn-success btn-sm ml-5"
+                                id="free_legal_advice">Free Legal Advice
+                            </a> &nbsp;&nbsp;
+                            <a href="#myModal" 
+                                className="btn btn-sm nav-bg"
+                                id="ask_question" data-bs-toggle="modal"> Ask Question?
+                            </a>
+                        </section>
                     </div>
                 </div>
             </section>
@@ -193,9 +206,12 @@ export default function Home() {
             )}
             <div className="row mt-2">
                     <div className="col-md-12">
-                        <div className="d-flex justify-content-center mt-md-5">
-                            <h2 className="text-dark font-weight-bold">Legal Services</h2>
-                        </div>
+                        <section className='d-lg'>
+                            <h2 className="text-dark font-weight-bold text-center">Legal Services</h2>
+                        </section>
+                        <section className='d-sm'>
+                            <h2 className="text-dark font-weight-bold text-center lgs-sm">Legal Services</h2>
+                        </section>
                         <div className="row">
                             <div className="col-lg-3 mt-3">
                               <div className="card shadow h-100 zoom nav-bg">

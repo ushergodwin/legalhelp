@@ -9,7 +9,7 @@ const Header2 = () => {
             <Link className="navbar-brand app-brand" to="/">
               <img src={'imgs/logo.png'} alt="legal help online logo" height="50"
               className="rounded-circle"/>
-                 &nbsp;LegalHelpOnline
+                 &nbsp;LegalHelp<span className='d-lg'>Online</span>
             </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
