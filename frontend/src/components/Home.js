@@ -277,7 +277,7 @@ export default function Home() {
                         <div className="row">
                             <div className="col-lg-3 mt-3">
                                 <div className="card shadow h-100 zoom nav-bg">
-                                    <img src={'/imgs/property.jpg'} className="card-img-top service-img" 
+                                    <img src={'/imgs/pro.webp'} className="card-img-top service-img" 
                                     height="100"/>
                                     <div className="card-footer">
                                         <h5>
