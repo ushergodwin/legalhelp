@@ -1,20 +1,31 @@
-import {QUESSION_SENT, QUESTION_NOT_SENT, SEND_QUESTION} from '../constants/asQuestionConstants'
-import axios from 'axios'
+import {
+  QUESSION_SENT,
+  QUESTION_NOT_SENT,
+} from "../constants/asQuestionConstants";
+import axios from "axios";
 
-export const askQuestion = (question) => async (dispatch) => {
+export const askQuestion =
+  (question, url = "/api/v1/question/ask") =>
+  async (dispatch) => {
     try {
-        dispatch({type: SEND_QUESTION})
-        const { data } = await axios.post('/api/v1/question/ask', question)
-        console.log(data);
+      const response = await axios.post(url, question);
+      if (response.data.message.indexOf("Failed") !== -1) {
         dispatch({
-            type: QUESSION_SENT,
-            payload: data
-        })
+          type: QUESTION_NOT_SENT,
+          payload: response.data,
+        });
+        return;
+      }
+
+      dispatch({
+        type: QUESSION_SENT,
+        payload: response.data,
+      });
     } catch (error) {
-        dispatch({
-            type: QUESTION_NOT_SENT,
-            error: true,
-            payload: {error: true}
-        })
+      dispatch({
+        type: QUESTION_NOT_SENT,
+        error: true,
+        payload: { error: true },
+      });
     }
-}
+  };
